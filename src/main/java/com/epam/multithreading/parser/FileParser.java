@@ -13,20 +13,20 @@ public class FileParser {
     private Validation validation;
     private static final String LINE_SPLIT = "\\s";
 
-    public FileParser(Validation validation) {
-        this.validation = validation;
+    public FileParser() {
+        validation = new Validation();
     }
 
-    public List<List<Double>> parsingLines(List<String> inputList) {
-        List<List<Double>> resultList = new ArrayList<>();
+    public List<List<Integer>> parsingLines(List<String> inputList) {
+        List<List<Integer>> resultList = new ArrayList<>();
         for (String line : inputList) {
             if (validation.isValid(line)) {
                 LOGGER.info("Line: " + line + " is valid line");
                 String[] numbers = line.split(LINE_SPLIT);
-                List<Double> numberList = new ArrayList<>();
+                List<Integer> numberList = new ArrayList<>();
 
                 for (String number : numbers) {
-                    numberList.add(Double.parseDouble(number));
+                    numberList.add(Integer.parseInt(number));
                 }
                 resultList.add(numberList);
             } else {
