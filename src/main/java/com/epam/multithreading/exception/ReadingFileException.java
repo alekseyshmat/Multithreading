@@ -1,6 +1,7 @@
 package com.epam.multithreading.exception;
 
 public class ReadingFileException extends Exception {
+
     public ReadingFileException() {
     }
 
