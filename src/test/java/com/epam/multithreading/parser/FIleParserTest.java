@@ -22,10 +22,10 @@ public class FIleParserTest {
     public Object[][] dataForParsingLinesTestPositive() {
         return new Object[][]{
                 {
-                        Arrays.asList("4 200", "7 600"),
+                        Arrays.asList("4 200 65", "7 600 100"),
                         Arrays.asList(                                              //expected list
-                                Arrays.asList(4, 200),
-                                Arrays.asList(7, 600)
+                                Arrays.asList(4, 200, 65),
+                                Arrays.asList(7, 600, 100)
                         )
                 }
         };
@@ -35,7 +35,7 @@ public class FIleParserTest {
     public Object[][] dataForParsingLinesTestNegative() {
         return new Object[][]{
                 {
-                        Arrays.asList("-5 s2", "4 5 6"),
+                        Arrays.asList("-5 s2 -9", "4 5 6 8 "),
                         Collections.emptyList()
                 }
         };

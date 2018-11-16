@@ -18,7 +18,7 @@ public class ValidationTest {
     public Object[][] dataForIsValidPositiveTest() {
         return new Object[][]{
                 {
-                        "4 5"   //input line
+                        "4 5 1"   //input line
                 }
         };
     }
@@ -30,10 +30,10 @@ public class ValidationTest {
                         "45 s2"
                 },
                 {
-                        "-6 4"
+                        "-6 4 8"
                 },
                 {
-                        "5"
+                        "5 98 36 45"
                 }
         };
     }

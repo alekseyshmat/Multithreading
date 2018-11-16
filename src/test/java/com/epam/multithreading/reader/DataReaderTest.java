@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DataReaderTest {
 
-    private static final String VALID_PATH = "src/test/resources/test.txt";
+    private static final String VALID_PATH = "src/test/resources/testFile.txt";
     private DataReader dataReader;
 
     @BeforeClass
@@ -23,9 +23,9 @@ public class DataReaderTest {
     public static Object[][] dataForReadingLinesTestPositive() {
         return new Object[][]{
                 {
-                        Arrays.asList("4 20",  //input lines
-                                "s 2",
-                                "7 200")
+                        Arrays.asList("4 20 10",  //input lines
+                                "s 2 s5",
+                                "7 200 65")
                 }
         };
     }
