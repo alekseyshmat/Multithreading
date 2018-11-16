@@ -21,8 +21,10 @@ public class CreateRestaurant {
 
             for (int index = 0; index < data.get(1); index++) {
                 Client client = new Client();
-                clientList.add(client);
+                clientList.addClient(client);
             }
+
+            clientList.setPreOrderClientList(data.get(2));
         }
         return true;
     }

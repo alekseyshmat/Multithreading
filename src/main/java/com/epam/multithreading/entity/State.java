@@ -6,4 +6,6 @@ public interface State {
     void changeCashBox(Client client);
 
     void removeFromCashBox(Client client);
+
+    void normalOrder(Client client);
 }

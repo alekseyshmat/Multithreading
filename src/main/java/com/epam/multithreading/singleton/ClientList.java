@@ -12,12 +12,12 @@ public class ClientList {
 
     private static ClientList instance;
     private List<Client> clientList = new ArrayList<>();
+    private int preOrderClientList;
     private static AtomicBoolean initialized;
 
     private static Lock lock = new ReentrantLock();
 
     private ClientList() {
-
     }
 
     public static ClientList getInstance() {
@@ -48,7 +48,7 @@ public class ClientList {
         return instance;
     }*/
 
-    public void add(Client client) {
+    public void addClient(Client client) {
         lock.lock();
         try {
             clientList.add(client);
@@ -56,6 +56,7 @@ public class ClientList {
             lock.unlock();
         }
     }
+
 
     public Client get(int index) {
         lock.lock();
@@ -66,8 +67,15 @@ public class ClientList {
         }
     }
 
-    public int size() {
+    public int sizeClientList() {
         return clientList.size();
     }
 
+    public int getPreOrderClientList() {
+        return preOrderClientList;
+    }
+
+    public void setPreOrderClientList(int preOrderClientList) {
+        this.preOrderClientList = preOrderClientList;
+    }
 }
