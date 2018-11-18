@@ -1,6 +1,5 @@
 package com.epam.multithreading.entity;
 
-import com.epam.multithreading.reader.DataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -51,7 +50,8 @@ public class Client implements Runnable {
                         " JOIN cashBox " + (cashId + 1));
             }
         } catch (InterruptedException e) {
-            LOGGER.error("InterruptedException");
+            Thread.currentThread().interrupt();
+            LOGGER.error("Interrupted " + Thread.currentThread());
         } finally {
             if (status == Status.LIVEQUEUE) {
                 LOGGER.info("Client " + (getClientId() + 1) +

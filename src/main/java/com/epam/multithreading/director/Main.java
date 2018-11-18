@@ -10,7 +10,6 @@ public class Main {
         ClientList clientList = ClientList.getInstance();
 
         demo.createListClients(PATH);
-        demo.startLiveQueueThread(clientList);
-        demo.startPreOrderThread(clientList);
+        demo.startApplication(clientList);
     }
 }

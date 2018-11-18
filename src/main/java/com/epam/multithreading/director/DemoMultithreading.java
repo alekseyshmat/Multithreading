@@ -1,32 +1,40 @@
 package com.epam.multithreading.director;
 
 import com.epam.multithreading.entity.Client;
-import com.epam.multithreading.entity.Status;
 import com.epam.multithreading.exception.ReadingFileException;
 import com.epam.multithreading.parser.FileParser;
 import com.epam.multithreading.reader.DataReader;
 import com.epam.multithreading.singleton.ClientList;
 import com.epam.multithreading.сreator.CreateOrder;
+import com.epam.multithreading.сreator.CreateThread;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class DemoMultithreading {
+
+    private static final Logger LOGGER = LogManager.getLogger(DemoMultithreading.class);
+    private static AtomicInteger counter = new AtomicInteger(0);
+    private static Lock lockGet = new ReentrantLock();
 
     private ClientList clientList = ClientList.getInstance();
     private DataReader dataReader = new DataReader();
     private FileParser fileParser = new FileParser();
     private CreateOrder createOrder = new CreateOrder();
+    private CreateThread createThread = new CreateThread();
+
+    private Thread[] threads;
 
     public void createListClients(String path) {
         List<String> values = null;
         try {
             values = dataReader.readingLines(path);
         } catch (ReadingFileException e) {
-            e.printStackTrace();
+            LOGGER.error("File is not found");
         }
 
         List<Integer> inputData = fileParser.parsingLines(values);
@@ -39,60 +47,56 @@ public class DemoMultithreading {
 
         clientList.setClientList(clients);
         clientList.setCountPreOrderClient(countPreOrderClient);
+        threads = new Thread[countClients + countPreOrderClient];
     }
 
-    public void startPreOrderThread(ClientList clientList) {
-        List<Semaphore> semaphores = createSemaphore(clientList);
-        int preOrderPerson = clientList.getCountPreOrderClient();
 
-        for (int currentClient = 0; currentClient < preOrderPerson; currentClient++) {
-            int randomCashBox = new Random().nextInt(clientList.sizeClientList());
-            new Thread(
-                    new Client(
-                            semaphores,
-                            randomCashBox,
-                            currentClient,
-                            Status.PREORDER
-                    )
-            ).start();
-        }
-    }
-
-    public void startLiveQueueThread(ClientList clientList) {
+    public void startApplication(ClientList clientList) {
         List<List<Client>> orders = clientList.getClientList();
-        List<Semaphore> semaphores = createSemaphore(clientList);
 
-        AtomicInteger currentClientId = new AtomicInteger();
+        AtomicInteger currentLiveClientId = new AtomicInteger();
+        AtomicInteger currentPreOrderClient = new AtomicInteger();
         int maxValue = createOrder.getMaxPersonInOrder();
 
-        while (currentClientId.get() != maxValue) {
+        while (currentLiveClientId.get() != maxValue) {
             int countOrder = clientList.sizeClientList();
+            int preOrderPerson = clientList.getCountPreOrderClient();
 
             for (int cashId = 0; cashId < countOrder; cashId++) {
-                if (currentClientId.get() < clientList.getClientList().
-                        get(cashId).size()) {
-                    Client client = clientList.get(orders, cashId, currentClientId.get());
+                if (currentLiveClientId.get() < orders.get(cashId).size()) {
+                    threads[incrementId()] =
+                            createThread.createLiveQueueThread(clientList, cashId, currentLiveClientId);
 
-                    new Thread(
-                            new Client(
-                                    semaphores,
-                                    cashId,
-                                    client.getClientId(),
-                                    Status.LIVEQUEUE
-                            )
-                    ).start();
+                    if (currentPreOrderClient.get() != preOrderPerson) {
+                        threads[incrementId()] =
+                                createThread.createPreOrderThread(clientList, currentPreOrderClient);
+                        currentPreOrderClient.getAndIncrement();
+                    }
                 }
             }
-            currentClientId.getAndIncrement();
+            currentLiveClientId.getAndIncrement();
+        }
+        startThreads(threads);
+    }
+
+    private void startThreads(Thread[] threads) {
+        for (Thread thread : threads) {
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                LOGGER.error("Interrupted " + Thread.currentThread());
+            }
         }
     }
 
-    private List<Semaphore> createSemaphore(ClientList clientList) {
-        List<Semaphore> semaphores = new ArrayList<>();
-
-        for (int semaphore = 0; semaphore < clientList.sizeClientList(); semaphore++) {
-            semaphores.add(new Semaphore(1));
+    private int incrementId() {
+        lockGet.lock();
+        try {
+            return counter.getAndIncrement();
+        } finally {
+            lockGet.unlock();
         }
-        return semaphores;
     }
 }
