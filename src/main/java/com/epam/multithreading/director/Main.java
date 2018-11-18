@@ -1,4 +1,4 @@
-package com.epam.multithreading.main;
+package com.epam.multithreading.director;
 
 import com.epam.multithreading.singleton.ClientList;
 
@@ -9,8 +9,8 @@ public class Main {
         DemoMultithreading demo = new DemoMultithreading();
         ClientList clientList = ClientList.getInstance();
 
-        demo.create(PATH);
-        demo.startClientThread(clientList);
+        demo.createListClients(PATH);
+        demo.startLiveQueueThread(clientList);
         demo.startPreOrderThread(clientList);
     }
 }

@@ -19,7 +19,7 @@ public class DataReader {
     }
 
     public List<String> readingLines(String path) throws ReadingFileException {
-        List<String> linesWithValues = new ArrayList<String>();
+        List<String> linesWithValues = new ArrayList<>();
         BufferedReader bufferedReader = null;
 
         try {
@@ -30,14 +30,14 @@ public class DataReader {
             }
             LOGGER.info("File was read");
         } catch (IOException ex) {
-            LOGGER.info("File is not found");
+            LOGGER.error("File is not found");
             throw new ReadingFileException(MESSAGE_FOR_EXCEPTION, ex);
         } finally {
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                  LOGGER.error("IOException");
                 }
             }
         }

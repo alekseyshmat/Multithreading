@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="818f3a34-0d6b-4606-8f3f-1159319d1427" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epam/multithreading/creator/CreateOrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBox.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/State.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ReadingFileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ReadingFileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ResourсeException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/parser/FileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/parser/FileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/ClientList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/ClientList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/AddingInformationToLists.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/DemoMultithreading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +37,7 @@
           <entry key="class" value="2" />
           <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="102" />
+          <entry key="java" value="113" />
           <entry key="log" value="1" />
           <entry key="txt" value="14" />
           <entry key="xml" value="2" />
@@ -57,7 +48,7 @@
           <entry key="ANSI Aware" value="1" />
           <entry key="CLASS" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="102" />
+          <entry key="JAVA" value="113" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="XML" value="2" />
         </counts>
@@ -66,15 +57,15 @@
         <counts>
           <entry key="dummy" value="45" />
           <entry key="gitignore" value="14" />
-          <entry key="java" value="7494" />
-          <entry key="txt" value="371" />
+          <entry key="java" value="7769" />
+          <entry key="txt" value="383" />
           <entry key="xml" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7494" />
-          <entry key="PLAIN_TEXT" value="430" />
+          <entry key="JAVA" value="7769" />
+          <entry key="PLAIN_TEXT" value="442" />
           <entry key="XML" value="20" />
         </counts>
       </usages-collector>
@@ -84,49 +75,50 @@
     <favorites_list name="freeCashBox" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4680162">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/DemoMultithreading.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-175">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/State.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateRestaurant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/AddingInfromationToLists.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/AddingInformationToLists.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBoxPool.java" />
@@ -170,12 +161,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/parser/FileParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ReadingFileException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java" />
         <option value="$PROJECT_DIR$/src/test/resources/test.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateOrder.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/epam/multithreading/creator/CreateOrderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/DemoMultithreading.java" />
       </list>
     </option>
   </component>
@@ -193,10 +187,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1355" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -247,6 +241,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="multithreading" type="462c0819:PsiDirectoryNode" />
+              <item name="director" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freeCashBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freeCashBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="multithreading" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -256,16 +259,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="multithreading" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="freeCashBox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="freeCashBox" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="multithreading" type="462c0819:PsiDirectoryNode" />
-              <item name="singleton" type="462c0819:PsiDirectoryNode" />
+              <item name="validator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="freeCashBox" type="b2602c69:ProjectViewProjectNode" />
@@ -320,6 +314,24 @@
               <item name="freeCashBox" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="multithreading" type="462c0819:PsiDirectoryNode" />
+              <item name="reader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freeCashBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freeCashBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="multithreading" type="462c0819:PsiDirectoryNode" />
+              <item name="validator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="freeCashBox" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freeCashBox" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -333,7 +345,7 @@
     <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542554614880" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542559546875" />
     <property name="last_opened_file_path" value="F:/Загрузки/epam5-master/epam5-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -361,11 +373,11 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.epam.multithreading.main.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.multithreading.director.Main" />
       <module name="freeCashBox" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.epam.multithreading.main.*" />
+          <option name="PATTERN" value="com.epam.multithreading.director.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -472,7 +484,7 @@
       <workItem from="1542039784410" duration="9449000" />
       <workItem from="1542127080062" duration="19423000" />
       <workItem from="1542394893258" duration="6849000" />
-      <workItem from="1542447195360" duration="42352000" />
+      <workItem from="1542447195360" duration="46753000" />
     </task>
     <task id="LOCAL-00001" summary="added dataReader and Logger">
       <created>1541676358606</created>
@@ -537,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542549032454</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fixed code">
+      <created>1542554758770</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542554758770</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -573,13 +592,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85198000" />
+    <option name="totallyTimeSpent" value="89599000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1359" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985119" weight="0.2881997" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.2881997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -588,11 +615,11 @@
       <window_info id="Favorites" order="6" sideWeight="0.5014881" side_tool="true" weight="0.2881997" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32886904" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19494048" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23363096" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.62053573" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32886904" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.38301283" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.3290938" />
@@ -625,7 +652,8 @@
     <MESSAGE value="added createOrder" />
     <MESSAGE value="added client orders" />
     <MESSAGE value="added pre-order client" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pre-order client" />
+    <MESSAGE value="fixed code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed code" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -745,51 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1398#1399#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/parser/FileParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ResourсeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -797,60 +780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/validator/Validation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/exception/ReadingFileException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/ClientList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1406#1407#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1505#1506#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1634#1635#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,16 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/testFile.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -912,20 +835,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/DemoMultithreading.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/CashBoxList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/CashBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Status.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/validator/Validation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/сreator/CreateOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2042#2043#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/singleton/ClientList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/parser/FileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="53" column="46" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/reader/DataReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/DemoMultithreading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/multithreading/director/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
         </state>
       </provider>
     </entry>
