@@ -13,12 +13,12 @@ import java.util.List;
 
 public class DataReader {
     private static final String MESSAGE_FOR_EXCEPTION = "File is not found";
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(DataReader.class);
 
     public DataReader() {
     }
 
-    public List readingLines(String path) throws ReadingFileException {
+    public List<String> readingLines(String path) throws ReadingFileException {
         List<String> linesWithValues = new ArrayList<String>();
         BufferedReader bufferedReader = null;
 

@@ -1,7 +1,7 @@
 package com.epam.multithreading.сreator;
 
+import com.epam.multithreading.entity.Client;
 import com.epam.multithreading.singleton.CashBoxList;
-import com.epam.multithreading.singleton.ClientList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,16 +11,15 @@ import java.util.List;
 public class CreateOrder {
     private static final Logger LOGGER = LogManager.getLogger(CreateOrder.class);
     private CashBoxList cashBoxList = CashBoxList.getInstance();
-    private ClientList clientList = ClientList.getInstance();
+//    private ClientList clientList = ClientList.getInstance();
 
-    public List<List<Integer>> create() {
-        List<List<Integer>> ordersList = new ArrayList<>();
-        List<Integer> tempList;
+    public List<List<Client>> create(int clients) {
+        List<List<Client>> ordersList = new ArrayList<>();
+        List<Client> tempList;
 
         int countCashBox = cashBoxList.size();
-        int countClient = clientList.sizeClientList();
-        int mod = countClient % countCashBox;
-        int ratio = countClient / countCashBox;
+        int mod = clients % countCashBox;
+        int ratio = clients / countCashBox;
 
         int currentCashBox = 0;
         int currentClient = 0;
@@ -28,22 +27,23 @@ public class CreateOrder {
         do {
             tempList = new ArrayList<>();
             int clientIndex = 0;
-            while (clientIndex < ratio) {
-                tempList.add(currentClient++);
-                clientIndex++;
+            while (clientIndex++ < ratio) {
+                tempList.add(new Client());
+                currentClient++;
             }
 
             if (currentCashBox == countCashBox - 1) {
                 int i = ratio;
                 while (i++ < ratio + mod) {
-                    tempList.add(currentClient++);
+                    tempList.add(new Client());
+                    currentClient++;
                 }
             }
             ordersList.add(tempList);
             LOGGER.info("Create order #" + (currentCashBox + 1) +
                     " from " + tempList.size() + " person");
             currentCashBox++;
-        } while (countClient != currentClient);
+        } while (clients != currentClient);
 
         return ordersList;
     }

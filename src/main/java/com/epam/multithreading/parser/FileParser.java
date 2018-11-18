@@ -17,18 +17,15 @@ public class FileParser {
         validation = new Validation();
     }
 
-    public List<List<Integer>> parsingLines(List<String> inputList) {
-        List<List<Integer>> resultList = new ArrayList<>();
+    public List<Integer> parsingLines(List<String> inputList) {
+        List<Integer> resultList = new ArrayList<>();
         for (String line : inputList) {
             if (validation.isValid(line)) {
                 LOGGER.info("Line: " + line + " is valid line");
                 String[] numbers = line.split(LINE_SPLIT);
-                List<Integer> numberList = new ArrayList<>();
-
                 for (String number : numbers) {
-                    numberList.add(Integer.parseInt(number));
+                    resultList.add(Integer.parseInt(number));
                 }
-                resultList.add(numberList);
             } else {
                 LOGGER.info("Line: " + line + " is not valid line");
             }

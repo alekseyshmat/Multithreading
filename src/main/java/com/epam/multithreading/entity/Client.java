@@ -1,32 +1,27 @@
 package com.epam.multithreading.entity;
 
-import com.epam.multithreading.exception.ResourсeException;
-
+import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Client implements Runnable {
+public class Client implements  Runnable {
 
-    private static AtomicInteger counter = new AtomicInteger(0);
-    private int clientId;
-    private State cashboxState;
     private Status status;
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    private boolean reading;
-
-    private CashBoxPool<CashBox> pool;
+    private static AtomicInteger counter = new AtomicInteger(0);
+    private long clientId;
+    private List<Semaphore> sem;
+    private int cashId;
 
     public Client() {
-    }
-
-    public Client(CashBoxPool<CashBox> pool, Status status) {
-        this.pool = pool;
-        this.status = status;
         clientId = counter.get();
         incrementId();
+    }
+
+    public Client(Status status, List<Semaphore> sem, long id, int cashId) {
+        this.status = status;
+        clientId = id;
+        this.sem = sem;
+        this.cashId = cashId;
     }
 
 
@@ -34,57 +29,27 @@ public class Client implements Runnable {
         return clientId;
     }
 
-    public void setCashboxState(State cashboxState) {
-        this.cashboxState = cashboxState;
-    }
-
     @Override
     public void run() {
-        CashBox cashBox = null;
         try {
+            sem.get(cashId).acquire();
             if (status == Status.NORMALORDER) {
-                cashBox = pool.getResource(7000);
-                reading = true;
-                System.out.println("Client " + (getId() + 1) + " JOIN cashBox " + (cashBox.getCashBoxId() + 1));
-                cashBox.using();
-            } else if (status == Status.PREORDER) {
-                cashBox = pool.getResource(7000);
-                reading = true;
-                cashBox.using();
+                System.out.println("Client " + (getId() + 1) +
+                        " JOIN cashBox " + (cashId + 1));
             }
-        } catch (ResourсeException e) {
-            System.out.println("Client " + (getId() + 1) + " lost ->" + e.getMessage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
-            if (cashBox != null && status == Status.NORMALORDER) {
-                reading = false;
-                System.out.println("Client " + (getId() + 1) + " OUT cashBox " + (cashBox.getCashBoxId() + 1));
-                pool.returnResource(cashBox);
-            }else if (cashBox != null && status == Status.PREORDER){
-                reading = false;
-                System.out.println("Client " + (getId() + 1) + " WITHOUT QUEUE OUT cashBox " + (cashBox.getCashBoxId() + 1));
-                pool.returnResource(cashBox);
+            if (status == Status.NORMALORDER) {
+                System.out.println("Client " + (getId() + 1) +
+                        " OUT cashBox " + (cashId + 1));
+                sem.get(cashId).release();
+            } else if (status == Status.PREORDER) {
+                System.out.println("Client " + (getId() + 1) +
+                        " WITHOUT QUEUE OUT cashBox " + (cashId + 1));
+                sem.get(cashId).release();
             }
         }
-    }
-
-    public void preOrder() {
-
-    }
-
-    public void addOrder(CashBox cashBox) throws ResourсeException {
-
-    }
-
-    public void remove(CashBox cashBox) {
-        if (cashBox != null) {
-            reading = false;
-            System.out.println("Client " + (getId() + 1) + " OUT cashBox " + (cashBox.getCashBoxId() + 1));
-            pool.returnResource(cashBox);
-        }
-    }
-
-    public boolean isReading() {
-        return reading;
     }
 
     @Override

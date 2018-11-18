@@ -11,9 +11,18 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ClientList {
 
     private static ClientList instance;
-    private List<Client> clientList = new ArrayList<>();
-    private int preOrderClientList;
-    private static AtomicBoolean initialized;
+    private List<List<Client>> clientList = new ArrayList<>();
+    private int countPreOrderClient;
+
+    public void setClientList(List<List<Client>> clientList) {
+        this.clientList = clientList;
+    }
+
+    public List<List<Client>> getClientList() {
+        return clientList;
+    }
+
+    private static AtomicBoolean initialized = new AtomicBoolean(false);
 
     private static Lock lock = new ReentrantLock();
 
@@ -21,24 +30,11 @@ public class ClientList {
     }
 
     public static ClientList getInstance() {
-        lock.lock();
-        try {
-            if (instance == null) {
-                instance = new ClientList();
-            }
-        } finally {
-            lock.unlock();
-        }
-        return instance;
-    }
-
-   /* public static ClientList getInstance() {
         if (!initialized.get()) {
             try {
                 lock.lock();
                 if (!initialized.get()) {
                     instance = new ClientList();
-//                    instance.init();
                     initialized.set(true);
                 }
             } finally {
@@ -46,22 +42,39 @@ public class ClientList {
             }
         }
         return instance;
-    }*/
+    }
 
-    public void addClient(Client client) {
+    public void addClient(Client client, int indexOrder) {
         lock.lock();
         try {
-            clientList.add(client);
+            clientList.get(indexOrder).add(client);
         } finally {
             lock.unlock();
         }
     }
 
-
-    public Client get(int index) {
+    public Client get(int indexOrder, int indexClient) {
         lock.lock();
         try {
-            return clientList.get(index);
+            return clientList.get(indexOrder).get(indexClient);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public Client get(List<List<Client>> client, int indexOrd, int indexClient){
+        lock.lock();
+        try {
+            return client.get(indexOrd).get(indexClient);
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void deleteClient(int indexOrder, int indexClient){
+        lock.lock();
+        try {
+            clientList.remove(get(indexOrder,indexClient));
         } finally {
             lock.unlock();
         }
@@ -71,11 +84,11 @@ public class ClientList {
         return clientList.size();
     }
 
-    public int getPreOrderClientList() {
-        return preOrderClientList;
+    public int getCountPreOrderClient() {
+        return countPreOrderClient;
     }
 
-    public void setPreOrderClientList(int preOrderClientList) {
-        this.preOrderClientList = preOrderClientList;
+    public void setCountPreOrderClient(int countPreOrderClient) {
+        this.countPreOrderClient = countPreOrderClient;
     }
 }

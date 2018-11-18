@@ -1,11 +1,7 @@
 package com.epam.multithreading.entity;
 
 public interface State {
-    void preOrder(Client client);
+    void preOrder(CashBox cashBox);
 
-    void changeCashBox(Client client);
-
-    void removeFromCashBox(Client client);
-
-    void normalOrder(Client client);
+    void normalOrder(CashBox cashBox);
 }
