@@ -6,43 +6,47 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Client implements Runnable {
 
-    private Status status;
     private static AtomicInteger counter = new AtomicInteger(0);
-    private long clientId;
-    private List<Semaphore> sem;
+    private List<Semaphore> semaphores;
     private int cashId;
+    private int clientId;
+    private Status status;
 
     public Client() {
         clientId = counter.get();
         incrementId();
     }
 
-    public Client(Status status, List<Semaphore> sem, long id, int cashId) {
-        this.status = status;
-        clientId = id;
-        this.sem = sem;
+    public Client(List<Semaphore> semaphores, int cashId, int clientId, Status status) {
+        this.semaphores = semaphores;
         this.cashId = cashId;
+        this.clientId = clientId;
+        this.status = status;
     }
 
-    public Client(Status status, List<Semaphore> sem, int cashId) {
-        this.status = status;
-        this.sem = sem;
+    public Client(List<Semaphore> semaphores, int cashId, Status status) {
+        this.semaphores = semaphores;
         this.cashId = cashId;
+        this.status = status;
     }
 
-    public long getId() {
+    public int getClientId() {
         return clientId;
+    }
+
+    private void incrementId() {
+        counter.incrementAndGet();
     }
 
     @Override
     public void run() {
         try {
-            if (status == Status.NORMALORDER) {
-                sem.get(cashId).acquire();
-                System.out.println("Client " + (getId() + 1) +
+            if (status == Status.LIVEQUEUE) {
+                semaphores.get(cashId).acquire();
+                System.out.println("Client " + (getClientId() + 1) +
                         " JOIN cashBox " + (cashId + 1));
             } else if (status == Status.PREORDER) {
-                sem.get(cashId).acquire();
+                semaphores.get(cashId).acquire();
                 System.out.println("Client in cashBox #" + (cashId + 1) + " wait client with pre-order");
                 System.out.println("Client with pre-order " +
                         " JOIN cashBox " + (cashId + 1));
@@ -50,14 +54,14 @@ public class Client implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            if (status == Status.NORMALORDER) {
-                System.out.println("Client " + (getId() + 1) +
+            if (status == Status.LIVEQUEUE) {
+                System.out.println("Client " + (getClientId() + 1) +
                         " OUT cashBox " + (cashId + 1));
-                sem.get(cashId).release();
+                semaphores.get(cashId).release();
             } else if (status == Status.PREORDER) {
                 System.out.println("Client with pre-order" +
                         " OUT cashBox " + (cashId + 1));
-                sem.get(cashId).release();
+                semaphores.get(cashId).release();
             }
         }
     }
@@ -65,9 +69,5 @@ public class Client implements Runnable {
     @Override
     public String toString() {
         return "Client " + clientId;
-    }
-
-    private void incrementId() {
-        counter.incrementAndGet();
     }
 }

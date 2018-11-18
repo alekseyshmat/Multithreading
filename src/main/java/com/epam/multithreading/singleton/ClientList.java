@@ -11,20 +11,12 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ClientList {
 
     private static ClientList instance;
+    private static AtomicBoolean initialized = new AtomicBoolean(false);
+    private static Lock lockGet = new ReentrantLock();
+    private static Lock lock = new ReentrantLock();
+
     private List<List<Client>> clientList = new ArrayList<>();
     private int countPreOrderClient;
-
-    public void setClientList(List<List<Client>> clientList) {
-        this.clientList = clientList;
-    }
-
-    public List<List<Client>> getClientList() {
-        return clientList;
-    }
-
-    private static AtomicBoolean initialized = new AtomicBoolean(false);
-
-    private static Lock lock = new ReentrantLock();
 
     private ClientList() {
     }
@@ -44,44 +36,25 @@ public class ClientList {
         return instance;
     }
 
-    public void addClient(Client client, int indexOrder) {
-        lock.lock();
-        try {
-            clientList.get(indexOrder).add(client);
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    public Client get(int indexOrder, int indexClient) {
-        lock.lock();
-        try {
-            return clientList.get(indexOrder).get(indexClient);
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    public Client get(List<List<Client>> client, int indexOrd, int indexClient){
-        lock.lock();
+    public Client get(List<List<Client>> client, int indexOrd, int indexClient) {
+        lockGet.lock();
         try {
             return client.get(indexOrd).get(indexClient);
         } finally {
-            lock.unlock();
-        }
-    }
-
-    public void deleteClient(int indexOrder, int indexClient){
-        lock.lock();
-        try {
-            clientList.remove(get(indexOrder,indexClient));
-        } finally {
-            lock.unlock();
+            lockGet.unlock();
         }
     }
 
     public int sizeClientList() {
         return clientList.size();
+    }
+
+    public List<List<Client>> getClientList() {
+        return clientList;
+    }
+
+    public void setClientList(List<List<Client>> clientList) {
+        this.clientList = clientList;
     }
 
     public int getCountPreOrderClient() {

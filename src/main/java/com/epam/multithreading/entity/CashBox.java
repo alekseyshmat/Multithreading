@@ -16,7 +16,6 @@ public class CashBox{
         return cashBoxId;
     }
 
-
     @Override
     public String toString() {
         return "CashBoxId " + cashBoxId;

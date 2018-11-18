@@ -9,9 +9,9 @@ import java.util.List;
 
 public class FileParser {
 
-    private static final Logger LOGGER = LogManager.getLogger();
-    private Validation validation;
+    private static final Logger LOGGER = LogManager.getLogger(FileParser.class);
     private static final String LINE_SPLIT = "\\s";
+    private Validation validation;
 
     public FileParser() {
         validation = new Validation();
