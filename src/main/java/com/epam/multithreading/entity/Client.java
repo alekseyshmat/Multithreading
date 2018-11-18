@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Client implements  Runnable {
+public class Client implements Runnable {
 
     private Status status;
     private static AtomicInteger counter = new AtomicInteger(0);
@@ -24,6 +24,11 @@ public class Client implements  Runnable {
         this.cashId = cashId;
     }
 
+    public Client(Status status, List<Semaphore> sem, int cashId) {
+        this.status = status;
+        this.sem = sem;
+        this.cashId = cashId;
+    }
 
     public long getId() {
         return clientId;
@@ -32,9 +37,14 @@ public class Client implements  Runnable {
     @Override
     public void run() {
         try {
-            sem.get(cashId).acquire();
             if (status == Status.NORMALORDER) {
+                sem.get(cashId).acquire();
                 System.out.println("Client " + (getId() + 1) +
+                        " JOIN cashBox " + (cashId + 1));
+            } else if (status == Status.PREORDER) {
+                sem.get(cashId).acquire();
+                System.out.println("Client in cashBox #" + (cashId + 1) + " wait client with pre-order");
+                System.out.println("Client with pre-order " +
                         " JOIN cashBox " + (cashId + 1));
             }
         } catch (InterruptedException e) {
@@ -45,8 +55,8 @@ public class Client implements  Runnable {
                         " OUT cashBox " + (cashId + 1));
                 sem.get(cashId).release();
             } else if (status == Status.PREORDER) {
-                System.out.println("Client " + (getId() + 1) +
-                        " WITHOUT QUEUE OUT cashBox " + (cashId + 1));
+                System.out.println("Client with pre-order" +
+                        " OUT cashBox " + (cashId + 1));
                 sem.get(cashId).release();
             }
         }

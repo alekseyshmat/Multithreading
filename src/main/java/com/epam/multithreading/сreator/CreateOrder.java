@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreateOrder {
+
     private static final Logger LOGGER = LogManager.getLogger(CreateOrder.class);
     private CashBoxList cashBoxList = CashBoxList.getInstance();
-//    private ClientList clientList = ClientList.getInstance();
+
+    private static int max;
 
     public List<List<Client>> create(int clients) {
         List<List<Client>> ordersList = new ArrayList<>();
@@ -43,8 +45,21 @@ public class CreateOrder {
             LOGGER.info("Create order #" + (currentCashBox + 1) +
                     " from " + tempList.size() + " person");
             currentCashBox++;
+
+            maxValue(tempList.size());
         } while (clients != currentClient);
 
         return ordersList;
+    }
+
+    private void maxValue(int listValue) {
+        max = 0;
+        if (max < listValue) {
+            max = listValue;
+        }
+    }
+
+    public static int getMax() {
+        return max;
     }
 }
